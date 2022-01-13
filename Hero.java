@@ -1,3 +1,3 @@
-public class Hero extends Fighter{
+public class Hero extends Fighters{
   
 }
