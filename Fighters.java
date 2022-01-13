@@ -1,3 +1,4 @@
 public class Fighters{
-  private int age;
+  private boolean isHero;
+  private boolean isVillain;
 }
