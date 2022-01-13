@@ -12,6 +12,10 @@ public class Arena
     {
         
     }
+    
+    public void distraction(){
+        System.out.println("Fighter gets hit");
+    }
 
 
 }
