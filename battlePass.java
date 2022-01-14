@@ -14,7 +14,6 @@
   }
   public void sleep(int ms)
   {
-    System.out.println("First print.");
     try 
     {
         Thread.sleep(ms); //2 secs
@@ -23,7 +22,6 @@
     {
         e.printStackTrace();
     }
-    System.out.println("This one comes after 2 seconds from the println.");
   }
   public void items()
   {
