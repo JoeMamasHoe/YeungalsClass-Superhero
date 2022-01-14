@@ -1,4 +1,4 @@
-public class battlePass
+ public class battlePass
 {
   public void main(String args[])
   {
