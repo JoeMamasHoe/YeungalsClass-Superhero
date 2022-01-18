@@ -2,7 +2,7 @@ import java.util.*;
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
-public class battlePass
+public class BattlePass
 {
   public static void main(String args[])throws UnsupportedAudioFileException, LineUnavailableException, IOException
   {
