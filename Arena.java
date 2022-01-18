@@ -9,65 +9,65 @@ public class Arena
     public Arena()
     {
     }
-    
+
     public Arena(int temp, String type, boolean hasGravity, boolean hasTrees, boolean hasCars)
     {
-        
+
     }
-    
+
     public void distraction()
     {
         System.out.println("Fighter gets hit");
     }
-    
+
     public int getTemp()
     {
         return temp;
     }
-    
+
     public void setTemp(int x)
     {
         temp = x;
     }
-    
+
     public String getType()
     {
         return type;
     }
-    
+
     public void setType(String y)
     {
         type = y;
     }
-    public String getGravity()
+    public boolean getGravity()
     {
         return hasGravity;
     }
-    
+
     public void setGravity(boolean y)
     {
         hasGravity = y;
     }
-    
-    public String getTrees()
+
+    public boolean getTrees()
     {
         return hasTrees;
     }
-    
+
     public void setTrees(boolean y)
     {
         hasTrees = y;
     }
-    
-    public String getCars()
+
+    public boolean getCars()
     {
         return hasCars;
     }
-    
+
     public void setCars(boolean y)
     {
         hasCars = y;
     }
-    
+
 
 }
