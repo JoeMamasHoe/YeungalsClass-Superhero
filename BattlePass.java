@@ -8,6 +8,8 @@ public class BattlePass
   {
       Scanner in = new Scanner (System.in);
       p("You enter the merchant's shop.");
+      sleep(1000);
+      shopTheme();
       sleep(2000);
       p("The walls are lined with foreign items you do not recognize...");
       sleep(2000);
@@ -20,6 +22,19 @@ public class BattlePass
       {
         items();
       }
+  }
+  public static void shopTheme() throws UnsupportedAudioFileException, LineUnavailableException, IOException
+  {
+     //ryan says hello
+     //Scanner in = new Scanner (System.in);
+     File file = new File("kelpgtrim.wav"); //temporary sound
+     AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+     Clip clip = AudioSystem.getClip();
+     clip.open(audioStream);
+     
+     clip.start();
+     
+     //String response = in.next();
   }
   public static void enterSound() throws UnsupportedAudioFileException, LineUnavailableException, IOException
   {
