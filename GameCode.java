@@ -5,7 +5,7 @@ public class GameCode {
     }
     Scanner in = new Scanner(System.in);
     public static void playGame() {
-        System.out.println("Welcome to Yuengle Jungles Battle Ground! \nIf you Like to play multiplayer, input 1, for single player vs CPU input 2.");
+        System.out.println("Welcome to Yuengel's Juengel: BattleGround! \nIf you Like to play multiplayer, input 1, for single player vs CPU input 2.");
 
         while(true) {
             Scanner in = new Scanner(System.in);
