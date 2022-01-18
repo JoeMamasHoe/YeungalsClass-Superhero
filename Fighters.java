@@ -19,6 +19,16 @@ public class Fighters
     this.isHero = isHero;
     this.isVillain = isVillain;
   }
+  public Fighters(){
+    health = 100.0;
+    name = "Default";
+    damage = 10;
+    arenaDamageMultiplier = 1.0;
+    preferredMap = "City";
+    type = "Human";
+    isHero = true;
+    isVillain = true;
+  }
 
   public void punch(){
     System.out.println("The fighter throws a fierce punch!");
