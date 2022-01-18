@@ -4,4 +4,8 @@ public class Astarc extends Villain{
         super("Astarc", 1.0);
 
     }
+    
+    public void special(){
+        System.out.println("Acid spit");
+    }
 }
