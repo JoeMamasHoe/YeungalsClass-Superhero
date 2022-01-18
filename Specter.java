@@ -1,6 +1,6 @@
 public class Specter {
   
   public void special(){
-        System.out.println("Specter makes a tornado");
+        System.out.println("Specter makes a Shuriken");
     }
 }
