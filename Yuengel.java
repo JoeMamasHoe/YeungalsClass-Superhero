@@ -13,7 +13,7 @@ public class Yuengel extends Hero{
     }
 
     public void special(){
-        System.out.println("Yuengel throws fireball!");
+        System.out.println("GLITCHES");
     }
     
 }
