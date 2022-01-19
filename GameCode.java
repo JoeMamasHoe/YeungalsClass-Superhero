@@ -1,5 +1,9 @@
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.*;
 public class GameCode{
     public static void main(String[] args){
         GameCode game = new GameCode();
@@ -8,7 +12,7 @@ public class GameCode{
     ArrayList<Fighters> players = new ArrayList();
     Scanner in = new Scanner(System.in);
     public void playGame() {
-        System.out.println("Welcome to Yuengle Jungles Battle Ground! \nIf you Like to play multiplayer, input 1, for single player vs CPU input 2.");
+        System.out.println("Welcome to Yuengle Jungles Battle Ground! \nIf you Like to play multiplayer, input 1, for single player vs CPU input 2, input 3 to open the battle pass.");
 
         while(true) {
             Scanner in = new Scanner(System.in);
@@ -20,6 +24,14 @@ public class GameCode{
             } else if (x == 2) {
                 cpu();
                 break;
+            } else if (x == 3) {
+                BattlePass battlePass = new BattlePass();
+                try {
+                    BattlePass.start();
+                } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
+                    e.printStackTrace();
+                }
+                break;
             } else {
                 System.out.println("not a valid imput please try again");
             }
@@ -29,6 +41,7 @@ public class GameCode{
     public void cpu(){
         pickCharecter();
         System.out.println("Name is " + players.get(0));
+
         players.get(0).kick();
 
     }
@@ -72,4 +85,13 @@ public class GameCode{
         else{Yuengel player1 = new Yuengel();players.add(player1);}
     }
 
+    public int attack(double dam, double acc){
+        int x = (int)(acc * (Math.random()));
+        if(x>.2){
+            return (int)dam;
+        }
+        else{
+            return 0;
+        }
+    }
 }
