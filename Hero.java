@@ -2,7 +2,7 @@ public class Hero extends Fighters{
 
     public Hero(String name, double arenaDamageMultiplier){
         
-        super(true,false);
+        super(true,false,name);
     }
 
 
