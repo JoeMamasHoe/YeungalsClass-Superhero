@@ -1,11 +1,14 @@
 import java.util.Scanner;
-public class GameCode {
+import java.util.ArrayList;
+public class GameCode{
     public static void main(String[] args){
-        playGame();
+        GameCode game = new GameCode();
+        game.playGame();
     }
+    ArrayList<Fighters> players = new ArrayList();
     Scanner in = new Scanner(System.in);
-    public static void playGame() {
-        System.out.println("Welcome to Yuengel's Juengel: BattleGround! \nIf you Like to play multiplayer, input 1, for single player vs CPU input 2.");
+    public void playGame() {
+        System.out.println("Welcome to Yuengle Jungles Battle Ground! \nIf you Like to play multiplayer, input 1, for single player vs CPU input 2.");
 
         while(true) {
             Scanner in = new Scanner(System.in);
@@ -23,18 +26,25 @@ public class GameCode {
         }
     }
 
-    public static void cpu(){
+    public void cpu(){
         pickCharecter();
-        System.out.println("Name is " + Yuengel.getName() );
-        
+        System.out.println("Name is " + players.get(0));
+        players.get(0).kick();
 
     }
 
-    public static void multiPlayer(){
-
+    public void multiPlayer(){
+        System.out.print("Player One choose first. ");
+        pickCharecter();
+        System.out.println("Player two choose next. ");
+        pickCharecter();
+        System.out.println("Player One: " + players.get(0) + "Player Two: " + players.get(1));
     }
 
-    public static void pickCharecter(){
+
+
+
+    public void pickCharecter(){
         System.out.println("Your choices of charecters are: \n" +
                 "1) Mr. Yuengel - Jungle\n" +
                 "2) Detective Matt - City\n" +
@@ -49,15 +59,17 @@ public class GameCode {
                 "10) Specter - independent\n");
         Scanner in = new Scanner(System.in);
         int choice = in.nextInt();
-        if(choice == 1){Yuengel player1 = new Yuengel();}
-        if(choice == 2){DetectiveMatt player1 = new DetectiveMatt();}
-        if(choice == 3){SpaceForce player1 = new SpaceForce();}
-        if(choice == 4){MrRobot player1 = new MrRobot();}
-        if(choice == 5){MidKnight player1 = new MidKnight();}
-        if(choice == 6){GustavoFabiano player1 = new GustavoFabiano();}
-        if(choice == 7){Astarc player1 = new Astarc();}
-        if(choice == 8){ProjectX player1 = new ProjectX();}
-        if(choice == 9){BlueJay player1 = new BlueJay();}
-        if(choice == 10){Specter player1 = new Specter();}
+        if(choice == 1){Yuengel player1 = new Yuengel();players.add(player1);}
+        else if(choice == 2){DetectiveMatt player1 = new DetectiveMatt();players.add(player1);}
+        else if(choice == 3){SpaceForce player1 = new SpaceForce();players.add(player1);}
+        else if(choice == 4){MrRobot player1 = new MrRobot();players.add(player1);}
+        else if(choice == 5){MidKnight player1 = new MidKnight();players.add(player1);}
+        else if(choice == 6){GustavoFabiano player1 = new GustavoFabiano();players.add(player1);}
+        else if(choice == 7){Astarc player1 = new Astarc();players.add(player1);}
+        else if(choice == 8){ProjectX player1 = new ProjectX();players.add(player1);}
+        else if(choice == 9){BlueJay player1 = new BlueJay();players.add(player1);}
+        else if(choice == 10){Specter player1 = new Specter();players.add(player1);}
+        else{Yuengel player1 = new Yuengel();players.add(player1);}
     }
+
 }
