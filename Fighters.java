@@ -10,9 +10,9 @@ public class Fighters
   private double accuracy;
   private double specialAccuracy;
 
-  public Fighters(boolean isHero, boolean isVillain){
+  public Fighters(boolean isHero, boolean isVillain, String name){
     health = 100.0;
-    name = "Default";
+    this.name = name;
     punchDamage = 15.0;
     kickDamage = 20.0;
     specialDamage = 40.0;
