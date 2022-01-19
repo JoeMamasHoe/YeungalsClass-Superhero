@@ -33,6 +33,9 @@ public class Fighters
     isVillain = true;
   }
 
+  public String getName(){
+    return name;
+  }
   public void punch(){
     System.out.println("The fighter throws a fierce punch!");
   }
