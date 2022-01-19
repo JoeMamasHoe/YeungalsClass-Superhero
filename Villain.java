@@ -1,8 +1,4 @@
 public class Villain extends Fighters{
-    private double health;
-    private int damage;
-    private double arenaDamageMultiplier;
-    private String name;
 
     public Villain(String name, double arenaDamageMultiplier){
         super(false,true);
