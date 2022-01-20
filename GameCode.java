@@ -26,7 +26,13 @@ public class GameCode{
                 cpu();
                 break;
             } else if (x == 3) {
-
+                battlePass theBattlePass = new battlePass();
+                try {
+                    theBattlePass.start();
+                } catch (Exception e) {
+                    System.out.println("fail");
+                    e.printStackTrace();
+                }
                 break;
             } else {
                 System.out.println("not a valid imput please try again");
