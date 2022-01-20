@@ -36,6 +36,22 @@ public class Fighters
   public String getName(){
     return name;
   }
+  public double getHealth(){
+    return health;
+  }
+  public double setHealth(double x){
+    health = x;
+    return x;
+  } 
+  public double getPunchDam(){
+    return punchDamage;
+  }
+  public double getKickDam(){
+    return kickDamage;
+  }
+  public double getSpecialDam(){
+    return specialDamage;
+  }
   public void punch(){
     System.out.println("The fighter throws a fierce punch!");
   }
