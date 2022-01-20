@@ -1,12 +1,10 @@
 public class Hero extends Fighters{
 
-    public Hero(String name, double arenaDamageMultiplier){
-        
-        super(true,false,name);
+    public Hero(String name){
+
+        super(true,false);
     }
 
-
-    
 
     public void punch(){
         System.out.println("The hero throws a fierce punch!");
