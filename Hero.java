@@ -2,7 +2,7 @@ public class Hero extends Fighters{
 
     public Hero(String name){
 
-        super(true,false);
+        super(true,false, name);
     }
 
 
@@ -19,3 +19,4 @@ public class Hero extends Fighters{
     }
   
 }
+, name
