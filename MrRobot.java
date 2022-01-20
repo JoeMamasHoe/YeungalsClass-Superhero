@@ -1,8 +1,14 @@
 public class MrRobot extends Hero{
-    
+
+    private double punchDamage;
+    private double kickDamage;
+    private double specialDamage;
+
     public MrRobot(){
-        super("MrRobot", 1.0);
-        
+        super("MrRobot");
+        punchDamage = 25.0;
+        specialDamage = 40.0;
+        kickDamage = 5.0;
     }
     public void punch(){
         System.out.println("MrRobot throws a little punch!");
