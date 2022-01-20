@@ -1,7 +1,7 @@
 public class Villain extends Fighters{
 
     public Villain(String name){
-        super(false,true);
+        super(false,true, name);
     }
 
     public void punch(){
