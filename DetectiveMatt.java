@@ -1,9 +1,17 @@
 public class DetectiveMatt extends Hero{
-    
+
+    private double punchDamage;
+    private double kickDamage;
+    private double specialDamage;
+
     public DetectiveMatt(){
-        super("DetectiveMatt", 1.0);
-        
+        super("DetectiveMatt");
+        punchDamage = 10.0;
+        specialDamage = 40.0;
+        kickDamage = 15.0;
     }
+
+
     public void punch(){
         System.out.println("Detective Matt throws a weak punch!");
     }
