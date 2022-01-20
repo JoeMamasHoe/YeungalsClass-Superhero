@@ -98,7 +98,7 @@ public class GameCode{
     //calculates attack damage and returns int
     public int attack(double dam, double acc){
         double x = acc * (Math.random());
-        if(x>0.08){
+        if(x>0.05){
             return (int)dam;
         }
         else{
