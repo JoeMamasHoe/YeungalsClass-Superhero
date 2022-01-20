@@ -6,22 +6,33 @@ public class battlePass
 {
     public static void main(String args[])throws UnsupportedAudioFileException, LineUnavailableException, IOException
     {
+      boolean song = true;
+      new Thread() {
+
+          @Override
+          public void run() {
+              //MUSIC DOES NOT END UNTIL FORCE RESET
+              //As your stream implements Closeable, it is better to use a "try-with-resources"
+              while (true)  
+              {
+                  try{
+                      shopTheme();
+                      sleep(11500);
+                    }
+                    catch(Exception e){break;}
+              }
+            }
+        }.start();
       Scanner in = new Scanner (System.in);
-      int towerlvl = 0;
+      int towerlvl = 10;
       boolean mulroy = false;
       p("You enter the merchant's shop.");
-      sleep(1000);
-      boolean song = true;
-      //while (song)
-      //{
-      //    shopTheme();
-      //}
-      sleep(3000);
+      sleep(2000);
       p("The walls are lined with foreign items you do not recognize...");
-      sleep(3000);
+      sleep(2000);
       p("The merchant greets you");
       enterSound();
-      sleep(4000);
+      sleep(4400);
       while (true)
       {
         p("There are 4 items on the shelf. Press 1-4 to view an item.");
@@ -35,7 +46,7 @@ public class battlePass
                 sleep(1500);
                 p("You unlocked Yuengel's 2nd monitor!");
                 ryLore1(); //ry talks about the monitor
-                sleep(10000);
+                sleep(6000);
             }
             else
             {
@@ -56,7 +67,7 @@ public class battlePass
                  towerlvl += 1;
                  p("You are now level 6!");
                  ryLore2();
-                 sleep(10000);
+                 sleep(6000);
             }
             else
             {
@@ -75,7 +86,7 @@ public class battlePass
                   sleep(1500);
                   p("You unlocked Navy Rum!");
                   ryRum();
-                  sleep(10000);
+                  sleep(6000);
               }
               else
               {
@@ -96,7 +107,7 @@ public class battlePass
                   p("Mr. Mulroy is available in the character select screen!");
                   mulroy = true;
                   ryLore4();
-                  sleep(7000);
+                  sleep(6000);
               }
               else
               {
@@ -109,10 +120,11 @@ public class battlePass
         }
         else if (choice==0)
         {
+              song = false;
+              
               sleep(1000);
               p("The merchant wishes you well on your journey...");
               sleep(500);
-              song = false;
               leaveSound();
               break;
         }
@@ -130,6 +142,11 @@ public class battlePass
        clip.open(audioStream);
        
        clip.start();
+       p(" 'This is Mr. Yuengel's 2nd Monitor' ");
+       sleep(2500);
+       p(" 'They said, so much freelance coding was done on this...' ");
+       sleep(5000);
+       p(" 'that there can't even be anymore freelance code..' ");
     }
     public static void ryLore2() throws UnsupportedAudioFileException, LineUnavailableException, IOException
     {
@@ -139,6 +156,7 @@ public class battlePass
        clip.open(audioStream);
        
        clip.start();
+       p(" 'Thanks for buying. äß©üuß öøß, äß©üuß öøß' ");
     }
     public static void ryRum() throws UnsupportedAudioFileException, LineUnavailableException, IOException
     {
@@ -148,6 +166,7 @@ public class battlePass
        clip.open(audioStream);
         
        clip.start();
+       p(" 'You know, Navy Rum sir, it's the only thing that keeps you sane sometimes...' ");
     }
     public static void ryLore4() throws UnsupportedAudioFileException, LineUnavailableException, IOException
     {
@@ -157,10 +176,11 @@ public class battlePass
        clip.open(audioStream);
        
        clip.start();
+       p(" 'You unlocked the secret Fighter, Congratulations! Get back to work.' ");
     }
     public static void shopTheme() throws UnsupportedAudioFileException, LineUnavailableException, IOException
     {
-       File file = new File("kelpgtrim.wav");
+       File file = new File("kelpgdone.wav");
        AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
        Clip clip = AudioSystem.getClip();
        clip.open(audioStream);
@@ -237,7 +257,7 @@ public class battlePass
        clip.start();
        
        //String response = in.next();
-       p(" 'Hello and welcome to my store, feel free to puruse...the ware..and get back to me... I gotta go work...Iĺl get back to you.' ");
+       p(" 'Hello and welcome to my store, feel free to puruse...the wares..and get back to me... I gotta go work...Iĺl get back to you.' ");
     }
     public static void enter3() throws UnsupportedAudioFileException, LineUnavailableException, IOException
     {
