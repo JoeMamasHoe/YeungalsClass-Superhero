@@ -7,16 +7,7 @@ public class Hero extends Fighters{
 
 
     
-    public String getName(){
-        return name;
-    }
-    public double getHealth(){
-        return health;
-    }
-    public double setHealth(double x){
-        health = x;
-        return x;
-    } 
+
     public void punch(){
         System.out.println("The hero throws a fierce punch!");
     }
