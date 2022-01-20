@@ -11,6 +11,7 @@ public class GameCode{
     }
     ArrayList<Fighters> players = new ArrayList();
     Scanner in = new Scanner(System.in);
+    //Players decieds mode
     public void playGame() {
         System.out.println("Welcome to Yuengle Jungles Battle Ground! \nIf you Like to play multiplayer, input 1, for single player vs CPU input 2, input 3 to open the battle pass.");
 
@@ -25,38 +26,48 @@ public class GameCode{
                 cpu();
                 break;
             } else if (x == 3) {
-                BattlePass battlePass = new BattlePass();
-                try {
-                    BattlePass.start();
-                } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
-                    e.printStackTrace();
-                }
+
                 break;
             } else {
                 System.out.println("not a valid imput please try again");
             }
         }
     }
-
+    //runs cpu campaign
     public void cpu(){
         pickCharecter();
-        System.out.println("Name is " + players.get(0));
-
-        players.get(0).kick();
+        System.out.println("You choose to play as " + players.get(0).getName() + " he is at " + players.get(0).getHealth());
+        players.get(0).setHealth(players.get(0).getHealth()-attack(10, 0.2));
+        System.out.println("You choose to play as " + players.get(0).getName() + " he is at " + players.get(0).getHealth());
+        players.get(0).setHealth(players.get(0).getHealth()-attack(10, 0.2));
+        System.out.println("You choose to play as " + players.get(0).getName() + " he is at " + players.get(0).getHealth());
+        players.get(0).setHealth(players.get(0).getHealth()-attack(10, 0.2));
+        System.out.println("You choose to play as " + players.get(0).getName() + " he is at " + players.get(0).getHealth());
+        players.get(0).setHealth(players.get(0).getHealth()-attack(10, 0.2));
+        System.out.println("You choose to play as " + players.get(0).getName() + " he is at " + players.get(0).getHealth());
+        players.get(0).setHealth(players.get(0).getHealth()-attack(10, 0.2));
+        System.out.println("You choose to play as " + players.get(0).getName() + " he is at " + players.get(0).getHealth());
 
     }
 
+    //blue print for cpu fight basically, can be called and will run that battle, returns true if player wins
+    public boolean cpuFight(Fighters op, Fighters player, Arena place){
+        System.out.println("You are at " + players.get(0));
+        return true;
+    }
+
+    //runs multiplayer game
     public void multiPlayer(){
         System.out.print("Player One choose first. ");
         pickCharecter();
         System.out.println("Player two choose next. ");
         pickCharecter();
-        System.out.println("Player One: " + players.get(0) + "Player Two: " + players.get(1));
+        System.out.println("Player One: " + players.get(0).getName() + "\nPlayer Two: " + players.get(1).getName());
     }
 
 
 
-
+    //method that picks charecter and adds to end of array of Fighters object called players to be accessed anywhere
     public void pickCharecter(){
         System.out.println("Your choices of charecters are: \n" +
                 "1) Mr. Yuengel - Jungle\n" +
@@ -84,14 +95,14 @@ public class GameCode{
         else if(choice == 10){Specter player1 = new Specter();players.add(player1);}
         else{Yuengel player1 = new Yuengel();players.add(player1);}
     }
-
+    //calculates attack damage and returns int
     public int attack(double dam, double acc){
-        int x = (int)(acc * (Math.random()));
-        if(x>.2){
+        double x = acc * (Math.random());
+        if(x>0.08){
             return (int)dam;
         }
         else{
-            return 0;
+            return 1;
         }
     }
 }
