@@ -22,6 +22,18 @@ public class SpaceForce extends Hero{
     
     public void special(){
         System.out.println("SpaceForce throws Rocket Barrage");
+        marineSpecialSound();
+    }
+    
+    //YOU NEED TO DOWNLOAD THE .WAV FILES FROM THE SOUND FOLDER, INSTRUCTIONS ARE IN THAT FOLDER'S README
+  public void marineSpecialSound() throws UnsupportedAudioFileException, LineUnavailableException, IOException
+    {
+       File file = new File("marineSpecial.wav");
+       AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+       Clip clip = AudioSystem.getClip();
+       clip.open(audioStream);
+       
+       clip.start();
     }
     
 }
