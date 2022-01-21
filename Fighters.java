@@ -1,4 +1,8 @@
-public class Fighters
+import java.util.*;
+import javax.sound.sampled.*;
+import java.io.File;
+import java.io.IOException;
+public class Fighters 
 {
   private double health;
   private String name;
@@ -21,7 +25,19 @@ public class Fighters
     this.isHero = isHero;
     this.isVillain = isVillain;
   }
-  public Fighters(){
+  
+  public void baseHit() throws UnsupportedAudioFileException, LineUnavailableException, IOException
+  {
+     File file = new File("baseHit.wav");
+     AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+     Clip clip = AudioSystem.getClip();
+     clip.open(audioStream);
+       
+     clip.start();
+  }
+  
+  public Fighters() throws UnsupportedAudioFileException, LineUnavailableException, IOException
+  {
     health = 100.0;
     name = "Default";
     punchDamage = 15.0;
@@ -52,15 +68,20 @@ public class Fighters
   public double getSpecialDam(){
     return specialDamage;
   }
-  public void punch(){
+  public void punch() throws UnsupportedAudioFileException, LineUnavailableException, IOException
+  {
     System.out.println("The fighter throws a fierce punch!");
+    baseHit();
   }
 
-  public void kick(){
+  public void kick() throws UnsupportedAudioFileException, LineUnavailableException, IOException
+  {
     System.out.println("The fighter kicks with a mighty force!");
+    baseHit();
   }
 
-  public void special(){
+  public void special() throws UnsupportedAudioFileException, LineUnavailableException, IOException
+  {
     System.out.println("The fighter uses their special move!");
   }
 }
