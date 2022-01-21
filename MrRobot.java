@@ -14,12 +14,27 @@ public class MrRobot extends Hero{
         specialDamage = 40.0;
         kickDamage = 5.0;
     }
-    public void punch(){
+    
+    public void baseHit() throws UnsupportedAudioFileException, LineUnavailableException, IOException
+    {
+       File file = new File("baseHit.wav");
+       AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+       Clip clip = AudioSystem.getClip();
+       clip.open(audioStream);
+       
+       clip.start();
+    }
+    
+    public void punch() throws UnsupportedAudioFileException, LineUnavailableException, IOException
+    {
         System.out.println("MrRobot throws a little punch!");
+        baseHit();
     }
 
-    public void kick(){
+    public void kick() throws UnsupportedAudioFileException, LineUnavailableException, IOException
+    {
         System.out.println("MrRobot kicks with a fierce force!");
+        baseHit();
     }
     
     public void special() throws UnsupportedAudioFileException, LineUnavailableException, IOException
@@ -35,6 +50,5 @@ public class MrRobot extends Hero{
        clip.open(audioStream);
        
        clip.start();
-       
     }
 }
