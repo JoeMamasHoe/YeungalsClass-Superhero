@@ -19,7 +19,11 @@ public class BlueJay extends Villain {
         System.out.println("Blue Jay screams");
       kaKaw();
     }
-  //YOU NEED TO DOWNLOAD THE .WAV FILES FROM THE SOUND FOLDER, INSTRUCTIONS ARE IN THAT FOLDER'S README
+  public void p(String x)
+    {
+        System.out.println(x);
+    }
+   //YOU NEED TO DOWNLOAD THE .WAV FILES FROM THE SOUND FOLDER, INSTRUCTIONS ARE IN THAT FOLDER'S README
   public void kaKaw() throws UnsupportedAudioFileException, LineUnavailableException, IOException
     {
        File file = new File("blueJSpecial.wav");
