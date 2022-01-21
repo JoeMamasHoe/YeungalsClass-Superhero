@@ -15,12 +15,23 @@ public class SpaceForce extends Hero{
         kickDamage = 20.0;
     }
 
-
-    public void punch(){
+    public void baseHit() throws UnsupportedAudioFileException, LineUnavailableException, IOException
+    {
+       File file = new File("baseHit.wav");
+       AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+       Clip clip = AudioSystem.getClip();
+       clip.open(audioStream);
+       
+       clip.start();
+    }
+    
+    public void punch() throws UnsupportedAudioFileException, LineUnavailableException, IOException
+    {
         System.out.println("SpaceForce throws a crazy punch!");
     }
 
-    public void kick(){
+    public void kick() throws UnsupportedAudioFileException, LineUnavailableException, IOException
+    {
         System.out.println("SpaceForce kicks with a slow force!");
     }
     
@@ -31,7 +42,7 @@ public class SpaceForce extends Hero{
     }
     
     //YOU NEED TO DOWNLOAD THE .WAV FILES FROM THE SOUND FOLDER, INSTRUCTIONS ARE IN THAT FOLDER'S README
-  public void marineSpecialSound() throws UnsupportedAudioFileException, LineUnavailableException, IOException
+    public void marineSpecialSound() throws UnsupportedAudioFileException, LineUnavailableException, IOException
     {
        File file = new File("marineSpecial.wav");
        AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
