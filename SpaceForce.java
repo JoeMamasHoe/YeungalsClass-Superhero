@@ -20,7 +20,8 @@ public class SpaceForce extends Hero{
         System.out.println("SpaceForce kicks with a slow force!");
     }
     
-    public void special(){
+    public void special() throws UnsupportedAudioFileException, LineUnavailableException, IOException
+    {
         System.out.println("SpaceForce throws Rocket Barrage");
         marineSpecialSound();
     }
