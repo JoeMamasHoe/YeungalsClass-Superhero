@@ -2,23 +2,37 @@ import java.util.*;
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
-public class Villain extends Fighters{
+public class Villain extends Fighters 
+{
 
-    public Villain(String name){
-        super(false,true, name);
-    }
-
-    public void punch() throws UnsupportedAudioFileException, LineUnavailableException, IOException
+   public Villain(String name){
+       super(false,true, name);
+   }
+   
+   public void baseHit() throws UnsupportedAudioFileException, LineUnavailableException, IOException
     {
-        System.out.println("The villain throws a fierce punch!");
+       File file = new File("baseHit.wav");
+       AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+       Clip clip = AudioSystem.getClip();
+       clip.open(audioStream);
+       
+       clip.start();
     }
+   
+   public void punch() throws UnsupportedAudioFileException, LineUnavailableException, IOException
+   {
+       System.out.println("The villain throws a fierce punch!");
+       baseHit();
+   }
 
-    public void kick(){
-        System.out.println("The villain kicks with a mighty force!");
-    }
+   public void kick() throws UnsupportedAudioFileException, LineUnavailableException, IOException
+   {
+       System.out.println("The villain kicks with a mighty force!");
+       baseHit();
+   }
 
-    public void special() throws UnsupportedAudioFileException, LineUnavailableException, IOException
-    {
-        System.out.println("The villain uses their special move!");
-    }
+   public void special() throws UnsupportedAudioFileException, LineUnavailableException, IOException
+   {
+       System.out.println("The villain uses their special move!");
+   }
 }
