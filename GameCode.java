@@ -42,26 +42,121 @@ public class GameCode{
     //runs cpu campaign
     public void cpu(){
         pickCharecter();
-        System.out.println("You choose to play as " + players.get(0).getName() + " he is at " + players.get(0).getHealth());
-        players.get(0).setHealth(players.get(0).getHealth()-attack(10, 0.2));
-        System.out.println("You choose to play as " + players.get(0).getName() + " he is at " + players.get(0).getHealth());
-        players.get(0).setHealth(players.get(0).getHealth()-attack(10, 0.2));
-        System.out.println("You choose to play as " + players.get(0).getName() + " he is at " + players.get(0).getHealth());
-        players.get(0).setHealth(players.get(0).getHealth()-attack(10, 0.2));
-        System.out.println("You choose to play as " + players.get(0).getName() + " he is at " + players.get(0).getHealth());
-        players.get(0).setHealth(players.get(0).getHealth()-attack(10, 0.2));
-        System.out.println("You choose to play as " + players.get(0).getName() + " he is at " + players.get(0).getHealth());
-        players.get(0).setHealth(players.get(0).getHealth()-attack(10, 0.2));
-        System.out.println("You choose to play as " + players.get(0).getName() + " he is at " + players.get(0).getHealth());
+        System.out.println("You choose to play as " + players.get(0).getName() + ".");
+        GustavoFabiano player1 = new GustavoFabiano();players.add(player1);
+        while (true){
+            if(cpuFight(players.get(0), players.get(1), 1))
+            {
+                System.out.println("You won! You defeated the evil mafia boss Gustavo Fabiano! You show promise but still must prove your self as a true fighter.");
+                break;
+            }
+            else{
+                System.out.println("you suck, that was level 1... you lost the easy battle. you stand no chance." +
+                        "turn back while you can.\n1) turn back (choose this becuase you suck)\n2) try again");
+                int x = in.nextInt();
+                if(x==1){
+                    playGame();
+                }
+            }
+        }
+        Astarc player2 = new Astarc();players.add(player2);
+        players.get(0).setHealth(100.0);
+        while (true){
+            System.out.println("time to prove your self blah blah blah.. somthing written here ");
+            if(cpuFight(players.get(0), players.get(2), 2))
+            {
+                System.out.println("You won! You defeated the defult text! blah blah still in wrok .");
+                break;
+            }
+            else{
+                System.out.println("you suck proably idk" +
+                        "turn back while you can.\n1) quit \n2) try again");
+                int x = in.nextInt();
+                if(x==1){
+                    playGame();
+                }
+            }
+        }
+
 
     }
 
     //blue print for cpu fight basically, can be called and will run that battle, returns true if player wins
-    public boolean cpuFight(Fighters op, Fighters player, Arena place){
-        System.out.println("You are at " + players.get(0));
-        return true;
+    public boolean cpuFight(Fighters player, Fighters cpu, int x){
+        System.out.println(cpu.getName() + " has appeared.");
+        while(player.getHealth() > 0 && cpu.getHealth() > 0){
+            System.out.println("It's your turn to attack!");
+            chooseAttack(x);
+            if(player.getHealth() > 0 && cpu.getHealth() > 0){
+                System.out.println("It is " + cpu.getName() + "s turn to attack." );
+                int choice = (int)(Math.random()*3 + 1);
+                double healthB = player.getHealth();
+                if (choice == 1) {
+                    System.out.println(cpu.getName() + " has chose to punch.");
+                    double h;player.setHealth(player.getHealth()-attack(cpu.getPunchDam(), cpu.getAccuracy()));if(player.getHealth()>0){h = player.getHealth();}else{h= 0;}
+                    if(player.getHealth() != healthB){System.out.println(cpu.getName() + " has hit you. You are now at " + h + " health.");}
+                    else{System.out.println(cpu.getName() + " has missed you. You are still at " + player.getHealth() + " health.");}
+                }
+                else if(choice == 2){
+                    System.out.println(cpu.getName() + " has chose to kick.");
+                    player.setHealth(player.getHealth()-attack(cpu.getKickDam(), cpu.getAccuracy()));
+                    double h;player.setHealth(player.getHealth()-attack(cpu.getPunchDam(), cpu.getAccuracy()));if(player.getHealth()>0){h = player.getHealth();}else{h= 0;}
+                    if(player.getHealth() != healthB){System.out.println(cpu.getName() + " has hit you. You are now at " + h + " health.");}
+                    else{System.out.println(cpu.getName() + " has missed you. You are still at " + player.getHealth() + " health.");}
+                }
+                else if(choice == 3){
+                    System.out.println(cpu.getName() + " has chose to use his special.");
+                    cpu.special();
+                    player.setHealth(player.getHealth()-attack(cpu.getSpecialDam(), cpu.getAccuracy()));
+                    double h;player.setHealth(player.getHealth()-attack(cpu.getPunchDam(), cpu.getAccuracy()));if(player.getHealth()>0){h = player.getHealth();}else{h= 0;}
+                    if(player.getHealth() != healthB){System.out.println(cpu.getName() + " has hit you. You are now at " + h + " health.");}
+                    else{System.out.println(cpu.getName() + " has missed you. You are still at " + player.getHealth() + " health.");}
+                }
+            }
+
+        }
+        if(cpu.getHealth() > 0){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
+    public void chooseAttack(int x){
+        boolean done = false;
+        while(!done) {
+            System.out.println("You can choose:\n1) punch\n2) kick\n3) special");
+            try {
+                int choice = in.nextInt();
+                if (choice == 1) {
+                    players.get(x).setHealth(players.get(x).getHealth()-attack(players.get(0).getPunchDam(), players.get(0).getAccuracy()));
+                    done = true;
+                }
+                else if(choice == 2){
+                    players.get(x).setHealth(players.get(x).getHealth()-attack(players.get(0).getKickDam(), players.get(0).getAccuracy()));
+                    done = true;
+                }
+                else if(choice == 3){
+                    players.get(0).special();
+                    players.get(x).setHealth(players.get(x).getHealth()-attack(players.get(0).getSpecialDam(), players.get(0).getAccuracy()));
+                    done = true;
+                }
+                else{
+                    System.out.println("Thats not a valid choice.");
+                }
+                if(players.get(x).getHealth() > 0){
+                    System.out.println(players.get(x).getName() + " is at " + players.get(x).getHealth() + " health.");
+                }
+                else{
+                    System.out.println(players.get(x).getName() + " was knocked out.");
+                }
+            }catch (Exception e){
+                System.out.println("Thats not a valid option.");
+            }
+
+        }
+    }
     //runs multiplayer game
     public void multiPlayer(){
         System.out.print("Player One choose first. ");
@@ -108,7 +203,8 @@ public class GameCode{
             return (int)dam;
         }
         else{
-            return 1;
+            return 0;
         }
     }
 }
+
