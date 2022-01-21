@@ -14,8 +14,10 @@ public class BlueJay extends Villain {
         kickDamage = 15.0;
     }
   
-  public void special(){
+  public void special() throws UnsupportedAudioFileException, LineUnavailableException, IOException
+  {
         System.out.println("Blue Jay screams");
+      kaKaw();
     }
   //YOU NEED TO DOWNLOAD THE .WAV FILES FROM THE SOUND FOLDER, INSTRUCTIONS ARE IN THAT FOLDER'S README
   public void kaKaw() throws UnsupportedAudioFileException, LineUnavailableException, IOException
