@@ -18,8 +18,19 @@ public class MrRobot extends Hero{
         System.out.println("MrRobot kicks with a fierce force!");
     }
     
-    public void special(){
+    public void special() throws UnsupportedAudioFileException, LineUnavailableException, IOException
+    {
         System.out.println("Mr. Robot transforms into a tank");
+        robotSpecialSound();
     }
-    
+    public static void robotSpecialSound() throws UnsupportedAudioFileException, LineUnavailableException, IOException
+    {
+       File file = new File("robotSpecial.wav"); 
+       AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+       Clip clip = AudioSystem.getClip();
+       clip.open(audioStream);
+       
+       clip.start();
+       
+    }
 }
