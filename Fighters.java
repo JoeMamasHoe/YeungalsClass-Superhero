@@ -81,7 +81,7 @@ public class Fighters
     baseHit();
   }
 
-  public void special() throws UnsupportedAudioFileException, LineUnavailableException, IOException
+  public void special()
   {
     System.out.println("The fighter uses their special move!");
   }
