@@ -1,8 +1,3 @@
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
-import java.io.IOException;
-import java.util.Scanner;
-import java.util.ArrayList;
 import java.util.*;
 public class GameCode{
     public static void main(String[] args){
@@ -11,9 +6,10 @@ public class GameCode{
     }
     ArrayList<Fighters> players = new ArrayList();
     Scanner in = new Scanner(System.in);
+    battlePass theBattlePass = new battlePass();
     //Players decieds mode
     public void playGame() {
-        System.out.println("Welcome to Yuengle Jungles Battle Ground! \nIf you Like to play multiplayer, input 1, for single player vs CPU input 2, input 3 to open the battle pass.");
+        System.out.println("Welcome to Yuengle Jungles Battle Ground! Please input a number to deiced what to do.\n1) multiplayer\n2) single player vs CPU");
 
         while(true) {
             Scanner in = new Scanner(System.in);
@@ -26,7 +22,7 @@ public class GameCode{
                 cpu();
                 break;
             } else if (x == 3) {
-                battlePass theBattlePass = new battlePass();
+
                 try {
                     theBattlePass.start();
                 } catch (Exception e) {
@@ -38,52 +34,110 @@ public class GameCode{
                 System.out.println("not a valid imput please try again");
             }
         }
+        System.out.println("done");
     }
     //runs cpu campaign
-    public void cpu(){
-        pickCharecter();
-        System.out.println("You choose to play as " + players.get(0).getName() + ".");
-        GustavoFabiano player1 = new GustavoFabiano();players.add(player1);
-        while (true){
-            if(cpuFight(players.get(0), players.get(1), 1))
-            {
-                System.out.println("You won! You defeated the evil mafia boss Gustavo Fabiano! You show promise but still must prove your self as a true fighter.");
-                break;
-            }
-            else{
-                System.out.println("you suck, that was level 1... you lost the easy battle. you stand no chance." +
-                        "turn back while you can.\n1) turn back (choose this becuase you suck)\n2) try again");
-                int x = in.nextInt();
-                if(x==1){
+    public void choices(boolean winOrNot) {
+        try {
+            if (!winOrNot) {
+                System.out.println("Turn back while you can.\n1) Try again\n2) Return to menu\n3) Open the battle pass");
+                int num = in.nextInt();
+                if (num == 1) {
+                    goOn = true;
+                } else if (num == 2) {
                     playGame();
+                } else if (num == 3) {
+                    try {
+                        theBattlePass.start();
+                        choices(false);
+                    } catch (Exception e) {
+                        System.out.println("fail");
+                        e.printStackTrace();
+                    }
+                } else {
+                    System.out.println("Please pick a number between 1-3");
                 }
-            }
-        }
-        Astarc player2 = new Astarc();players.add(player2);
-        players.get(0).setHealth(100.0);
-        while (true){
-            System.out.println("time to prove your self blah blah blah.. somthing written here ");
-            if(cpuFight(players.get(0), players.get(2), 2))
-            {
-                System.out.println("You won! You defeated the defult text! blah blah still in wrok .");
-                break;
-            }
-            else{
-                System.out.println("you suck proably idk" +
-                        "turn back while you can.\n1) quit \n2) try again");
-                int x = in.nextInt();
-                if(x==1){
-                    playGame();
-                }
-            }
-        }
 
+            }
+            else {
+                System.out.println("1) continue\n2) Return to menu\n3) Open the battle pass");
+                int num = in.nextInt();
+                if (num == 1) {
+                    goOn = false;
+                } else if (num == 2) {
+                    playGame();
+                } else if (num == 3) {
+                    try {
+                        theBattlePass.start();
+                        choices(true);
+                    } catch (Exception e) {
+                        System.out.println("fail");
+                        e.printStackTrace();
+                    }
+                } else {
+                    System.out.println("Please pick a number between 1-3");
+                }
+
+            }
+        }catch(Exception e){
+            System.out.println("Something went wrong. I don't want to point fingers, but it was definitely because you didn't follow directions. Lets try that again. Input a integer from 1-3");
+            choices(winOrNot);
+        }
+    }
+    static int towerLvl = 0;
+    public void towerPassed(){towerLvl++;}
+    boolean goOn = true;
+    public void cpu() {
+        pickCharecter();
+        System.out.println("You choose to play as " + players.get(0).getName() + ". Time to see what you got.");
+        GustavoFabiano player1 = new GustavoFabiano();
+        players.add(player1);
+        while (goOn) {
+            cpuFight(players.get(0), players.get(1), 1, "You won! You defeated the evil mafia boss Gustavo Fabiano! "
+                    + "You show promise but still must prove your self as a true fighter.");
+        }
+        goOn = true;
+        Astarc player2 = new Astarc();
+        players.add(player2);
+        players.get(0).setHealth(100.0);
+        while (goOn) {
+            System.out.println("It's time to prove your self... Astrac is a alien known for his spit atack, stay away from his deadly acid and you will be fine. ");
+            cpuFight(players.get(0), players.get(2), 2, "You won! You defeated the Astrac! You might be an alright fighter, but lets see how you compare to ProjectX first.");
+        }
+        goOn = true;
+        ProjectX player3 = new ProjectX();
+        players.add(player3);
+        players.get(0).setHealth(100.0);
+        while (goOn) {
+            System.out.println("ProjectX is a mutant creature who exscaped from a lab. His special is lazer beams.");
+            cpuFight(players.get(0), players.get(3), 3, "You won! You defeated ProjectX, you are now closer to being able to take on the Blue Jay.");
+        }
+        goOn = true;
+        Specter player4 = new Specter();
+        players.add(player4);
+        players.get(0).setHealth(100.0);
+        while (goOn) {
+            System.out.println("Time to fight the fastest Ninja you've ever seen. Beware, Specter has some sharp shurikens.");
+            cpuFight(players.get(0), players.get(3), 3, "You won! You defeated Specter, time to move on to the next part of your training to prepare you for the Blue Jay." +
+                    " You have proven you are worth Yuengels time, and he has agreed to train you."+
+                    " You will be pinned against his students to practice.");
+        }
+        goOn = true;
+        DetectiveMatt player5 = new DetectiveMatt();
+        players.add(player5);
+        players.get(0).setHealth(100.0);
+        while (goOn) {
+            System.out.println("First up is Detective Matt.");
+            cpuFight(players.get(0), players.get(3), 3, "You won! You beat Detective Matt.");
+        }
+        goOn = true;
 
     }
 
     //blue print for cpu fight basically, can be called and will run that battle, returns true if player wins
-    public boolean cpuFight(Fighters player, Fighters cpu, int x){
-        System.out.println(cpu.getName() + " has appeared.");
+    public void cpuFight(Fighters player, Fighters cpu, int x, String str){
+        if(player.getHealth() > 0 && cpu.getHealth() > 0){System.out.println(cpu.getName() + " has appeared.");}
+        player.setHealth(100);cpu.setHealth(100);
         while(player.getHealth() > 0 && cpu.getHealth() > 0){
             System.out.println("It's your turn to attack!");
             chooseAttack(x);
@@ -115,11 +169,10 @@ public class GameCode{
             }
 
         }
-        if(cpu.getHealth() > 0){
-            return false;
-        }
-        else{
-            return true;
+        if(player.getHealth() > 0){
+            System.out.println(str);
+            towerPassed();
+            choices(true);
         }
     }
 
@@ -207,4 +260,3 @@ public class GameCode{
         }
     }
 }
-
