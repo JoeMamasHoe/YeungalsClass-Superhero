@@ -49,6 +49,7 @@ public class Fighters
     isVillain = true;
   }
 
+  public double getAccuracy(){return accuracy;}
   public String getName(){
     return name;
   }
