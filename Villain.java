@@ -5,9 +5,9 @@ import java.io.IOException;
 public class Villain extends Fighters 
 {
 
-   public Villain(String name){
-       super(false,true, name);
-   }
+   public Villain(String name, double punchDam, double kickDam, double spDam){
+        super(true,false, name, punchDam, kickDam, spDam);
+    }
    
    public void baseHit() throws UnsupportedAudioFileException, LineUnavailableException, IOException
     {
