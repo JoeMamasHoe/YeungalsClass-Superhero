@@ -21,7 +21,7 @@ public class MidKnight extends Hero{
     }
     public void midSound() throws UnsupportedAudioFileException, LineUnavailableException, IOException
     {
-       File file = new File("gusSpecial.wav");
+       File file = new File("Mid.wav");
        AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
        Clip clip = AudioSystem.getClip();
        clip.open(audioStream);
