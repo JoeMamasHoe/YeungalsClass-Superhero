@@ -1,14 +1,7 @@
 public class Yuengel extends Hero{
 
-    private double punchDamage;
-    private double kickDamage;
-    private double specialDamage;
-
     public Yuengel(){
-        super("Yuengel");
-        punchDamage = 25.0;
-        specialDamage = 40.0;
-        kickDamage = 20.0;
+        super( "Yuengel", 20, 15, 40);
     }
 
     public void punch(){
