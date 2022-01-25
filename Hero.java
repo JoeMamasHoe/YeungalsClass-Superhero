@@ -4,9 +4,8 @@ import java.io.File;
 import java.io.IOException;
 public class Hero extends Fighters
 {
-    public Hero(String name)
-    {
-        super(true,false, name);
+    public Hero(String name, double punchDam, double kickDam, double spDam){
+        super(true,false, name, punchDam, kickDam, spDam);
     }
 
     public void baseHit() throws UnsupportedAudioFileException, LineUnavailableException, IOException
