@@ -3,17 +3,9 @@ import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
 public class BlueJay extends Villain {
-    private double punchDamage;
-    private double kickDamage;
-    private double specialDamage;
-
     public BlueJay(){
-        super("BlueJay");
-        punchDamage = 20.0;
-        specialDamage = 40.0;
-        kickDamage = 15.0;
+        super("BlueJay", 20, 15, 40);
     }
-  
   public void special() throws UnsupportedAudioFileException, LineUnavailableException, IOException
   {
         System.out.println("Blue Jay screams");
