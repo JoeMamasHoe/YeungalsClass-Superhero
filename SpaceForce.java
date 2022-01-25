@@ -4,15 +4,8 @@ import java.io.File;
 import java.io.IOException;
 public class SpaceForce extends Hero{
 
-    private double punchDamage;
-    private double kickDamage;
-    private double specialDamage;
-
     public SpaceForce(){
-        super("SpaceForce");
-        punchDamage = 15.0;
-        specialDamage = 40.0;
-        kickDamage = 20.0;
+        super("SpaceForce", 20, 15, 40);
     }
 
     public void baseHit() throws UnsupportedAudioFileException, LineUnavailableException, IOException
