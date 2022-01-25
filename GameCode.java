@@ -1,6 +1,9 @@
+import javax.sound.sampled.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
 public class GameCode{
-    public static void main(String[] args){
+    public static void main(String[] args) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         GameCode game = new GameCode();
         game.playGame();
     }
@@ -8,7 +11,7 @@ public class GameCode{
     Scanner in = new Scanner(System.in);
     battlePass theBattlePass = new battlePass();
     //Players decieds mode
-    public void playGame() {
+    public void playGame() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         System.out.println("Welcome to Yuengle Jungles Battle Ground! Please input a number to deiced what to do.\n1) multiplayer\n2) single player vs CPU");
 
         players.clear();
@@ -88,7 +91,7 @@ public class GameCode{
     static int towerLvl = 0;
     public void towerPassed(){towerLvl++;}
     boolean goOn = true;
-    public void cpu() {
+    public void cpu() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         pickCharecter();
         System.out.println("You choose to play as " + players.get(0).getName() + ". Time to see what you got.");
         GustavoFabiano player1 = new GustavoFabiano();
@@ -194,7 +197,7 @@ public class GameCode{
     }
 
     //blue print for cpu fight basically, can be called and will run that battle, returns true if player wins
-    public void cpuFight(Fighters player, Fighters cpu, int x, String str){
+    public void cpuFight(Fighters player, Fighters cpu, int x, String str) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         if(player.getHealth() > 0 && cpu.getHealth() > 0){System.out.println(cpu.getName() + " has appeared.");}
         player.setHealth(100);cpu.setHealth(100);
         while(player.getHealth() > 0 && cpu.getHealth() > 0){
@@ -249,18 +252,18 @@ public class GameCode{
                 if (choice == 1){
                     players.get(x).setHealth(players.get(x).getHealth()-attack(players.get(0).getPunchDam(), players.get(0).getAccuracy()));
                     done = true;
-                    if(c == players.get(x).getHealth()){System.out.println("Your attack missed.");}else{sCharge++;}
+                    if(c == players.get(x).getHealth()){System.out.println("Your attack missed.");}else{sCharge++;baseHit();}
                 }
                 else if(choice == 2){
                     players.get(x).setHealth(players.get(x).getHealth()-attack(players.get(0).getKickDam(), players.get(0).getAccuracy()));
                     done = true;
-                    if(c == players.get(x).getHealth()){System.out.println("Your attack missed.");}else{sCharge++;}
+                    if(c == players.get(x).getHealth()){System.out.println("Your attack missed.");}else{sCharge++;baseHit();}
                 }
                 else if(choice == 3 && sCharge>2){
                     players.get(0).special();
                     players.get(x).setHealth(players.get(x).getHealth()-attack(players.get(0).getSpecialDam(), players.get(0).getAccuracy()));
                     sCharge=0;
-                    if(c == players.get(x).getHealth()){System.out.println("Your attack missed.");}
+                    if(c == players.get(x).getHealth()){System.out.println("Your attack missed.");}else{baseHit();}
                     done = true;
                 }
                 else{
@@ -327,4 +330,16 @@ public class GameCode{
             return 0;
         }
     }
+
+
+    public void baseHit() throws UnsupportedAudioFileException, LineUnavailableException, IOException
+    {
+        File file = new File("baseHit.wav");
+        AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+        Clip clip = AudioSystem.getClip();
+        clip.open(audioStream);
+
+        clip.start();
+    }
+
 }
