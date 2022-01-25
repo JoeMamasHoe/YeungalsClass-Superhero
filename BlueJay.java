@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 public class BlueJay extends Villain {
     public BlueJay(){
-        super("BlueJay", 20, 15, 40);
+        super("BlueJay", 25, 25, 40);
     }
   public void special() throws UnsupportedAudioFileException, LineUnavailableException, IOException
   {
