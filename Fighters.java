@@ -14,12 +14,12 @@ public class Fighters
   private double accuracy;
   private double specialAccuracy;
 
-  public Fighters(boolean isHero, boolean isVillain, String name){
+  public Fighters(boolean isHero, boolean isVillain, String name, double punchDam, double kickDam, double spDam){
     health = 100.0;
     this.name = name;
-    punchDamage = 15.0;
-    kickDamage = 20.0;
-    specialDamage = 40.0;
+    punchDamage = punchDam;
+    kickDamage = kickDam;
+    specialDamage = spDam;
     accuracy = 0.2;
     specialAccuracy = 0.5;
     this.isHero = isHero;
