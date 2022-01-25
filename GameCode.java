@@ -11,6 +11,7 @@ public class GameCode{
     public void playGame() {
         System.out.println("Welcome to Yuengle Jungles Battle Ground! Please input a number to deiced what to do.\n1) multiplayer\n2) single player vs CPU");
 
+        players.clear();
         while(true) {
             Scanner in = new Scanner(System.in);
             int x;
@@ -118,7 +119,7 @@ public class GameCode{
         players.get(0).setHealth(100.0);
         while (goOn) {
             System.out.println("Time to fight the fastest Ninja you've ever seen. Beware, Specter has some sharp shurikens.");
-            cpuFight(players.get(0), players.get(3), 3, "You won! You defeated Specter, time to move on to the next part of your training to prepare you for the Blue Jay." +
+            cpuFight(players.get(0), players.get(4), 4, "You won! You defeated Specter, time to move on to the next part of your training to prepare you for the Blue Jay." +
                     " You have proven you are worth Yuengels time, and he has agreed to train you."+
                     " You will be pinned against his students to practice.");
         }
@@ -128,10 +129,68 @@ public class GameCode{
         players.get(0).setHealth(100.0);
         while (goOn) {
             System.out.println("First up is Detective Matt.");
-            cpuFight(players.get(0), players.get(3), 3, "You won! You beat Detective Matt.");
+            cpuFight(players.get(0), players.get(5), 5, "You won! You beat Detective Matt.");
         }
         goOn = true;
 
+        SpaceForce player6 = new SpaceForce();
+        players.add(player6);
+        players.get(0).setHealth(100.0);
+        while (goOn) {
+            System.out.println("Well done, time to fight the space marine - Space Force.");
+            cpuFight(players.get(0), players.get(6), 6, "You won! You beat Space Force.");
+        }
+        goOn = true;
+        MrRobot player7 = new MrRobot();
+        players.add(player7);
+        players.get(0).setHealth(100.0);
+        while (goOn) {
+            System.out.println("Next up Mr. Robot, beware ,he can turn into a tank.");
+            cpuFight(players.get(0), players.get(7), 7, "You won! You have defeated Mr. Robot.");
+        }
+        goOn = true;
+        MidKnight player8 = new MidKnight();
+        players.add(player8);
+        players.get(0).setHealth(100.0);
+        while (goOn) {
+            System.out.println("Now time to fight Yuengels Strongest student, Mid Knight.");
+            cpuFight(players.get(0), players.get(8), 8, "You won! You beat Mid Knight.");
+        }
+        goOn = true;
+        Yuengel player9 = new Yuengel();
+        players.add(player9);
+        players.get(0).setHealth(100.0);
+        while (goOn) {
+            System.out.println("You are almost ready. You must fight Yuengel in order to prove you are ready.");
+            cpuFight(players.get(0), players.get(9), 9, "You won. Yuengel says you are ready to take on the Blue Jay.");
+        }
+        goOn = true;
+        BlueJay player10 = new BlueJay();
+        players.add(player10);
+        players.get(0).setHealth(100.0);
+        while (goOn) {
+            System.out.println("This is the most important fight yet, good luck.");
+            cpuFight(players.get(0), players.get(10), 10, "You won! You defeated the Blue Jay and have proven your self to be a true fighter.");
+        }
+        goOn = true;
+        System.out.println("Would you like to keep fighting or go back to menu?" +
+                "\n1) Continue fighting" +
+                "\n2) Return to menu");
+        int choice = in.nextInt();
+        if(choice == 1){
+            while(true){
+                goOn = true;
+                int vs = (int) (Math.random() * 10);
+                players.get(0).setHealth(100.0);
+                while (goOn) {
+                    System.out.println("Time to fight " + players.get(vs).getName() + ". Good luck.");
+                    cpuFight(players.get(0), players.get(vs), vs, "You won! You defeated " + players.get(0) + "!");
+                }
+            }
+        }
+        else{
+            playGame();
+        }
     }
 
     //blue print for cpu fight basically, can be called and will run that battle, returns true if player wins
@@ -143,26 +202,24 @@ public class GameCode{
             chooseAttack(x);
             if(player.getHealth() > 0 && cpu.getHealth() > 0){
                 System.out.println("It is " + cpu.getName() + "s turn to attack." );
-                int choice = (int)(Math.random()*3 + 1);
+                int choice = (int)(Math.random()*11 + 1);
                 double healthB = player.getHealth();
-                if (choice == 1) {
+                if (choice<5) {
                     System.out.println(cpu.getName() + " has chose to punch.");
                     double h;player.setHealth(player.getHealth()-attack(cpu.getPunchDam(), cpu.getAccuracy()));if(player.getHealth()>0){h = player.getHealth();}else{h= 0;}
                     if(player.getHealth() != healthB){System.out.println(cpu.getName() + " has hit you. You are now at " + h + " health.");}
                     else{System.out.println(cpu.getName() + " has missed you. You are still at " + player.getHealth() + " health.");}
                 }
-                else if(choice == 2){
+                else if(choice<11){
                     System.out.println(cpu.getName() + " has chose to kick.");
-                    player.setHealth(player.getHealth()-attack(cpu.getKickDam(), cpu.getAccuracy()));
-                    double h;player.setHealth(player.getHealth()-attack(cpu.getPunchDam(), cpu.getAccuracy()));if(player.getHealth()>0){h = player.getHealth();}else{h= 0;}
+                    double h;player.setHealth(player.getHealth()-attack(cpu.getKickDam(), cpu.getAccuracy()));if(player.getHealth()>0){h = player.getHealth();}else{h= 0;}
                     if(player.getHealth() != healthB){System.out.println(cpu.getName() + " has hit you. You are now at " + h + " health.");}
                     else{System.out.println(cpu.getName() + " has missed you. You are still at " + player.getHealth() + " health.");}
                 }
-                else if(choice == 3){
+                else {
                     System.out.println(cpu.getName() + " has chose to use his special.");
                     cpu.special();
-                    player.setHealth(player.getHealth()-attack(cpu.getSpecialDam(), cpu.getAccuracy()));
-                    double h;player.setHealth(player.getHealth()-attack(cpu.getPunchDam(), cpu.getAccuracy()));if(player.getHealth()>0){h = player.getHealth();}else{h= 0;}
+                    double h;player.setHealth(player.getHealth()-attack(cpu.getSpecialDam(), cpu.getAccuracy()));if(player.getHealth()>0){h = player.getHealth();}else{h= 0;}
                     if(player.getHealth() != healthB){System.out.println(cpu.getName() + " has hit you. You are now at " + h + " health.");}
                     else{System.out.println(cpu.getName() + " has missed you. You are still at " + player.getHealth() + " health.");}
                 }
@@ -174,25 +231,36 @@ public class GameCode{
             towerPassed();
             choices(true);
         }
+        else if(cpu.getHealth() > 0){
+            choices(false);
+
+        }
     }
 
+    int sCharge = 0;
     public void chooseAttack(int x){
         boolean done = false;
         while(!done) {
-            System.out.println("You can choose:\n1) punch\n2) kick\n3) special");
+            System.out.print("You can choose:\n1) punch\n2) kick");
+            if(sCharge>2){System.out.println("\n3) special");}else{System.out.println();}
             try {
                 int choice = in.nextInt();
-                if (choice == 1) {
+                double c = players.get(x).getHealth();
+                if (choice == 1){
                     players.get(x).setHealth(players.get(x).getHealth()-attack(players.get(0).getPunchDam(), players.get(0).getAccuracy()));
                     done = true;
+                    if(c == players.get(x).getHealth()){System.out.println("Your attack missed.");}else{sCharge++;}
                 }
                 else if(choice == 2){
                     players.get(x).setHealth(players.get(x).getHealth()-attack(players.get(0).getKickDam(), players.get(0).getAccuracy()));
                     done = true;
+                    if(c == players.get(x).getHealth()){System.out.println("Your attack missed.");}else{sCharge++;}
                 }
-                else if(choice == 3){
+                else if(choice == 3 && sCharge>2){
                     players.get(0).special();
                     players.get(x).setHealth(players.get(x).getHealth()-attack(players.get(0).getSpecialDam(), players.get(0).getAccuracy()));
+                    sCharge=0;
+                    if(c == players.get(x).getHealth()){System.out.println("Your attack missed.");}
                     done = true;
                 }
                 else{
