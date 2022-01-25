@@ -4,11 +4,8 @@ public class DetectiveMatt extends Hero{
     private double kickDamage;
     private double specialDamage;
 
-    public DetectiveMatt(){
-        super("DetectiveMatt");
-        punchDamage = 10.0;
-        specialDamage = 40.0;
-        kickDamage = 15.0;
+  public DetectiveMatt(){
+        super("DetectiveMatt", 15, 15, 40);
     }
 
 
