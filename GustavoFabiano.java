@@ -6,7 +6,8 @@ public class GustavoFabiano extends Villain{
     public GustavoFabiano(){
         super("GustavoFabiano", 20, 15, 40);
     }
-    public void special(){
+    public void special() throws UnsupportedAudioFileException, LineUnavailableException, IOException
+    {
         System.out.println("Pulls out tommy gun");
         gusSound();
     }
