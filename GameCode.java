@@ -12,7 +12,7 @@ public class GameCode{
     battlePass theBattlePass = new battlePass();
     //Players decieds mode
     public void playGame() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
-        System.out.println("Welcome to Yuengel's Juengel: Death Fight 2! Please input a number to decide what to do.\n1) multiplayer\n2) single player vs CPU");
+        System.out.println("Welcome to Yuengel's Juengel: Death Fight 2! Please input a number to decide what to do.\n1) Quit\n2) single player vs CPU");
 
         players.clear();
         while(true) {
@@ -20,7 +20,7 @@ public class GameCode{
             int x;
             try{x = in.nextInt();}catch(Exception e){x = 3;}
             if (x == 1) {
-                multiPlayer();
+                System.exit(01);
                 break;
             } else if (x == 2) {
                 cpu();
