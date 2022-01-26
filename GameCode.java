@@ -12,7 +12,7 @@ public class GameCode{
     battlePass theBattlePass = new battlePass();
     //Players decieds mode
     public void playGame() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
-        System.out.println("Welcome to Yuengle Jungles Battle Ground! Please input a number to deiced what to do.\n1) multiplayer\n2) single player vs CPU");
+        System.out.println("Welcome to Yuengel's Juengel: Death Fight 2! Please input a number to decide what to do.\n1) multiplayer\n2) single player vs CPU");
 
         players.clear();
         while(true) {
@@ -44,7 +44,7 @@ public class GameCode{
     public void choices(boolean winOrNot) {
         try {
             if (!winOrNot) {
-                System.out.println("Turn back while you can.\n1) Try again\n2) Return to menu\n3) Open the battle pass");
+                System.out.println("Turn back while you can.\n1) Try again\n2) Return to menu\n3) Go to Ry's Battle Pass");
                 int num = in.nextInt();
                 if (num == 1) {
                     goOn = true;
@@ -64,7 +64,7 @@ public class GameCode{
 
             }
             else {
-                System.out.println("1) continue\n2) Return to menu\n3) Open the battle pass");
+                System.out.println("1) Continue\n2) Return to menu\n3) Go to Ry's Battle Pass");
                 int num = in.nextInt();
                 if (num == 1) {
                     goOn = false;
@@ -84,7 +84,7 @@ public class GameCode{
 
             }
         }catch(Exception e){
-            System.out.println("Something went wrong. I don't want to point fingers, but it was definitely because you didn't follow directions. Lets try that again. Input a integer from 1-3");
+            System.out.println("Something went wrong. I don't want to point fingers, but it was definitely because you didn't follow directions. Lets try that again. Input an integer from 1-3");
             choices(winOrNot);
         }
     }
@@ -97,23 +97,23 @@ public class GameCode{
         GustavoFabiano player1 = new GustavoFabiano();
         players.add(player1);
         while (goOn) {
-            cpuFight(players.get(0), players.get(1), 1, "You won! You defeated the evil mafia boss Gustavo Fabiano! "
-                    + "You show promise but still must prove your self as a true fighter.");
+            cpuFight(players.get(0), players.get(1), 1, "You won! You defeated the evil Mafia Boss Gustavo Fabiano! "
+                    + "You show promise but still must prove yourself as a true fighter.");
         }
         goOn = true;
         Astarc player2 = new Astarc();
         players.add(player2);
         players.get(0).setHealth(100.0);
         while (goOn) {
-            System.out.println("It's time to prove your self... Astrac is a alien known for his spit atack, stay away from his deadly acid and you will be fine. ");
-            cpuFight(players.get(0), players.get(2), 2, "You won! You defeated the Astrac! You might be an alright fighter, but lets see how you compare to ProjectX first.");
+            System.out.println("It's time to prove your self... Astarc is an alien known for his spit atack, stay away from his deadly acid and you will be fine. ");
+            cpuFight(players.get(0), players.get(2), 2, "You won! You defeated Astarc! You might be an alright fighter, but lets see how you compare to ProjectX first.");
         }
         goOn = true;
         ProjectX player3 = new ProjectX();
         players.add(player3);
         players.get(0).setHealth(100.0);
         while (goOn) {
-            System.out.println("ProjectX is a mutant creature who exscaped from a lab. His special is lazer beams.");
+            System.out.println("ProjectX is a mutant creature who exscaped from a lab. He is equipped with Lazers.");
             cpuFight(players.get(0), players.get(3), 3, "You won! You defeated ProjectX, you are now closer to being able to take on the Blue Jay.");
         }
         goOn = true;
@@ -123,7 +123,7 @@ public class GameCode{
         while (goOn) {
             System.out.println("Time to fight the fastest Ninja you've ever seen. Beware, Specter has some sharp shurikens.");
             cpuFight(players.get(0), players.get(4), 4, "You won! You defeated Specter, time to move on to the next part of your training to prepare you for the Blue Jay." +
-                    " You have proven you are worth Yuengels time, and he has agreed to train you."+
+                    " You have proven you are worth Yuengel's time, and he has agreed to train you."+
                     " You will be pinned against his students to practice.");
         }
         goOn = true;
@@ -131,7 +131,7 @@ public class GameCode{
         players.add(player5);
         players.get(0).setHealth(100.0);
         while (goOn) {
-            System.out.println("First up is Detective Matt.");
+            System.out.println("First up is Detective Matt. Fun Fact: He can't spell to save his life.");
             cpuFight(players.get(0), players.get(5), 5, "You won! You beat Detective Matt.");
         }
         goOn = true;
@@ -140,7 +140,7 @@ public class GameCode{
         players.add(player6);
         players.get(0).setHealth(100.0);
         while (goOn) {
-            System.out.println("Well done, time to fight the space marine - Space Force.");
+            System.out.println("Well done, time to fight the Space Marine - Space Force.");
             cpuFight(players.get(0), players.get(6), 6, "You won! You beat Space Force.");
         }
         goOn = true;
@@ -148,7 +148,7 @@ public class GameCode{
         players.add(player7);
         players.get(0).setHealth(100.0);
         while (goOn) {
-            System.out.println("Next up Mr. Robot, beware ,he can turn into a tank.");
+            System.out.println("Next up Mr. Robot, beware, he can turn into a tank.");
             cpuFight(players.get(0), players.get(7), 7, "You won! You have defeated Mr. Robot.");
         }
         goOn = true;
@@ -156,7 +156,7 @@ public class GameCode{
         players.add(player8);
         players.get(0).setHealth(100.0);
         while (goOn) {
-            System.out.println("Now time to fight Yuengels Strongest student, Mid Knight.");
+            System.out.println("Now time to fight Yuengel's strongest student, Mid Knight.");
             cpuFight(players.get(0), players.get(8), 8, "You won! You beat Mid Knight.");
         }
         goOn = true;
