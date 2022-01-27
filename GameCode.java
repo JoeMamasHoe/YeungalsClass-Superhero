@@ -10,9 +10,10 @@ public class GameCode{
     ArrayList<Fighters> players = new ArrayList();
     Scanner in = new Scanner(System.in);
     battlePass theBattlePass = new battlePass();
-    //Players decieds mode
+    Credits theCredits = new Credits();
+    //Players decides mode
     public void playGame() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
-        System.out.println("Welcome to Yuengel's Juengel: Death Fight 2! Please input a number to decide what to do.\n1) Quit\n2) single player vs CPU");
+        System.out.println("Welcome to Yuengel's Juengel: Death Fight 2! Please input a number to decide what to do.\n1) multiplayer\n2) single player vs CPU\n4) Credits");
 
         players.clear();
         while(true) {
@@ -20,7 +21,7 @@ public class GameCode{
             int x;
             try{x = in.nextInt();}catch(Exception e){x = 3;}
             if (x == 1) {
-                System.exit(01);
+                multiPlayer();
                 break;
             } else if (x == 2) {
                 cpu();
@@ -29,6 +30,15 @@ public class GameCode{
 
                 try {
                     theBattlePass.start();
+                } catch (Exception e) {
+                    System.out.println("fail");
+                    e.printStackTrace();
+                }
+                break;
+            } else if (x == 4) {
+                
+                try {
+                    theCredits.start();
                 } catch (Exception e) {
                     System.out.println("fail");
                     e.printStackTrace();
