@@ -25,11 +25,13 @@ public class Credits
     }
     public void space()
     {
-        sleep(500);
+        sleep(150);
         p("");
+        sleep(150);
         p("");
+        sleep(150);
         p("");
-        sleep(500);
+        sleep(150);
     }
     public void bigSpace()
     {
@@ -66,9 +68,9 @@ public class Credits
     public void marco()
     {
         p("Senior Programmer + Voice of Gustavo Fabiano:");
-        sleep(500);
+        sleep(150);
         p("");
-        sleep(500);
+        sleep(150);
         p("$$\\      $$\\                                               $$$$$$\\                     $$\\                 $$\\ $$\\           ");
         sleep(150);
         p("$$$\\    $$$ |                                              \\_$$  _|                    $$ |                $$ |$$ |          ");
@@ -88,9 +90,9 @@ public class Credits
     public void david()
     {
         p("Cyber Security Risk Division + Voice of Mr. Robot and Space Force:");
-        sleep(500);
+        sleep(150);
         p("");
-        sleep(500);
+        sleep(150);
         p("               ,---.           ,-.-. .=-.-.                          ___    _,.----.                 _,.---._    .-._          _,.---._                     _,---.  ,--.-,,-,--, ");
         sleep(150);
         p("  _,..---._  .--.'  \\   ,--.-./=/ ,//==/_ /_,..---._          .-._ .'=.'\\ .' .' -   \\  _,..---._   ,-.' , -  `. /==/ \\  .-._ ,-.' , -  `.  .--.-. .-.-. _.='.'-,  \\/==/  /|=|  | ");
@@ -112,9 +114,9 @@ public class Credits
     public void matt()
     {
         p("Software Architect + Voice of Detective Matt:");
-        sleep(500);
+        sleep(150);
         p("");
-        sleep(500);
+        sleep(150);
         p("  __  __       _   _   _                     ____             _   _      ");
         sleep(150);
         p(" |  \\/  |     | | | | | |                   |  _ \\           | | (_)     ");
@@ -134,9 +136,9 @@ public class Credits
     public void kyle()
     {
         p("Executive Project Manager + Voice of Blue Jay:");
-        sleep(500);
+        sleep(150);
         p("");
-        sleep(500);
+        sleep(150);
         p(" _  _  _  _  __    ____        _   _  ____  _  _  ____  _  _ ");
         sleep(150);
         p("( )/ )( \\/ )(  )  ( ___)      ( )_( )( ___)( \\( )(  _ \\( \\/ )");
@@ -148,81 +150,81 @@ public class Credits
     public void nathanK()
     {
         p("Project Designer:");
-        sleep(500);
+        sleep(150);
         p("");
-        sleep(500);
+        sleep(150);
         p("");
     }
     public void nateL()
     {
         p("Project Designer:");
-        sleep(500);
+        sleep(150);
         p("");
-        sleep(500);
+        sleep(150);
         p("");
     }
     public void nath()
     {
         p("Software Engineer + Voice of MidKnight:");
-        sleep(500);
+        sleep(150);
         p("");
-        sleep(500);
+        sleep(150);
         p("");
     }
     public void Orion()
     {
         p("Project Manager:");
-        sleep(500);
+        sleep(150);
         p("");
-        sleep(500);
+        sleep(150);
         p("");
     }
     public void Adam()
     {
         p("Unpaid Intern + Voice of Project X + General Nuisance:");
-        sleep(500);
+        sleep(150);
         p("");
-        sleep(500);
+        sleep(150);
         p("");
     }
     public void Rayna()
     {
         p("Programmer:");
-        sleep(500);
+        sleep(150);
         p("");
-        sleep(500);
+        sleep(150);
         p("");
     }
     public void Jay()
     {
         p("Project Manager:");
-        sleep(500);
+        sleep(150);
         p("");
-        sleep(500);
+        sleep(150);
         p("");
     }
     public void Sean()
     {
         p("Programmer:");
-        sleep(500);
+        sleep(150);
         p("");
-        sleep(500);
+        sleep(150);
         p("");
     }
     public void yuengel()
     {
         p("Juice Box Provider:");
-        sleep(500);
+        sleep(150);
         p("");
-        sleep(500);
+        sleep(150);
         p("");
     }
     public void ryan()
     {
         p("Voice of The Merchant + General Inspiration to all:");
-        sleep(500);
+        sleep(150);
         p("");
-        sleep(500);
+        sleep(150);
         p("");
     }
 }
