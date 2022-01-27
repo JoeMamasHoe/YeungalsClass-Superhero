@@ -1,8 +1,19 @@
+import java.util.*;
+import javax.sound.sampled.*;
+import java.io.File;
+import java.io.IOException;
 public class Credits
 {
-    public void main(String args[])
+    public void main(String args[]) throws UnsupportedAudioFileException, LineUnavailableException, IOException
     {
         playCredits();
+    }
+    public void playSong() throws UnsupportedAudioFileException, LineUnavailableException, IOException{
+        File file = new File("elsoniditoTrim.wav");
+        AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+        Clip clip = AudioSystem.getClip();
+        clip.open(audioStream);
+        clip.start();
     }
     public void p(String x)
     {
@@ -48,8 +59,9 @@ public class Credits
             sleep(100);
         }
     }
-    public void playCredits()
+    public void playCredits() throws UnsupportedAudioFileException, LineUnavailableException, IOException
     {
+        playSong();
         cred();
         bigSpace();
         space();
@@ -106,7 +118,7 @@ public class Credits
     }
     public void marco()
     {
-        p("Senior Programmer + Voice of Gustavo Fabiano:");
+        p("Senior Programmer + Voice of Gustavo Fabiano + Battle Pass Extrodanaire + Made these Epic Credits:");
         sleep(150);
         p("");
         sleep(150);
@@ -393,5 +405,8 @@ public class Credits
         p("|__|  \\___)|___/(___/    \\___)\\___|\\____\\)        |___|\\__/|___|(__\\_|_)  \\__|         \\__|    |___|\\__/|___|(___/    \\___)\\___|\\____\\) ");
         sleep(150);
         p("                                                                                                                                        ");
+    }
+    public void start() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
+        main(null);
     }
 }
